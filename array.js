@@ -20,3 +20,26 @@ var isAnagram = function(s, t){
 
     return str1 === str2;
 };
+
+//***1. TWO SUM***/
+//Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.//
+
+var twoSum = function(nums, target) {
+    // let hash = {}
+    // for(let i in nums){
+    //     let dif = target - nums[i];
+    //     if(hash[dif]){
+    //         return[hash[dif], i]
+    //     }
+    //     hash[dif] = i
+    // }
+    // return hash
+    let map = new Map();
+    for(let i = 0; i < nums.length; i++){
+        if(map.has(target-nums[i])){
+            targetIndex = map.get(target-nums[i]);
+            return [i, targetIndex];
+        }
+        map.set(nums[i], i);
+    }
+};
