@@ -43,3 +43,20 @@ var twoSum = function(nums, target) {
         map.set(nums[i], i);
     }
 };
+
+//***49. GROUP ANAGRAMS***//
+//Given an array of strings strs, group the anagrams together. You can return the answer in any order. An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.//
+
+var groupAnagrams = function(strs){
+    let hash = {};
+    strs.forEach(str =>{
+        sortedStr = str.split("").sort().join("");
+        if(hash[sortedStr]){
+            hash[sortedStr].push(str);
+        }
+        else{
+            hash[sortedStr] = [str]
+        }
+    })
+    return Object.values(hash);
+};
